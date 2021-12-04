@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths" : {
+            "@components/*": ["components/*"],
+            "@controllers/*": ["controllers/*"],
+            "@config/*": ["config/*"]
+        }
+    }
+}
+
+// need to restart the server
