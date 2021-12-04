@@ -1,7 +1,7 @@
 import nc from 'next-connect';
 import bdConnect from '@config/dbConnect';
 
-import { allRooms } from "@controllers/roomControllers"
+import { allRooms, newRoom } from "@controllers/roomControllers"
 
 
 
@@ -12,6 +12,8 @@ const handler = nc();
 bdConnect();
 
 handler.get(allRooms)
+
+handler.post(newRoom)
 
 // if you want to use middleware
 // handler.use(middleware).get(allRooms)
