@@ -1,5 +1,6 @@
 import Room from '../models/room';
 
+// Get all Rooms =>  /api/rooms
 const allRooms = async (req, res) => {
   
   try {
@@ -41,4 +42,30 @@ const newRoom = async (req, res) => {
   
 };
 
-export {allRooms, newRoom};
+
+// Get room details  =>  /api/rooms/:id
+const getSingleRoom = async (req, res) => {
+  
+    const room = await Room.findById(req.query.id);
+
+    if(!room) {
+      res.status(404).json({
+        success: false,
+        error: 'Room not found with this ID'
+      })
+    }
+
+    res.status(200).json({
+      success: true,
+      room,
+    });
+
+
+  
+};
+
+export {
+  allRooms, 
+  newRoom, 
+  getSingleRoom
+};
